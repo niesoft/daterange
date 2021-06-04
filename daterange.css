@@ -1,4 +1,167 @@
-.daterange-wrapper {
-  border: 1px solid #333;
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap");
+* {
+  font-family: 'Montserrat', sans-serif;
+}
+
+.daterange-input {
+  background: #282C34;
+  color: #D3D3D3;
+  display: -webkit-box;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  -moz-align-items: center;
+  align-items: center;
+  border-radius: 4px;
+}
+
+.daterange-input > p {
+  margin: 0px;
+  -webkit-box-flex: 1;
+  -moz-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  padding: 10px;
+}
+
+.daterange-input:after {
+  content: "";
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='456.428' height='500.393'%3E%3Cpath d='M137.867 0a22.425 22.425 0 00-22.474 22.475v22.203H69.285C30.901 44.678 0 75.578 0 113.963v317.142c0 38.385 30.9 69.288 69.285 69.288h317.858c38.384 0 69.285-30.903 69.285-69.288V113.963c0-38.384-30.901-69.285-69.285-69.285h-46.108V22.475A22.425 22.425 0 00318.561 0a22.426 22.426 0 00-22.477 22.475v22.203h-135.74V22.475A22.426 22.426 0 00137.867 0zm-62.73 89.998h40.256v24.906a22.426 22.426 0 0022.474 22.477 22.428 22.428 0 0022.477-22.477V89.998h135.74v24.906a22.428 22.428 0 0022.477 22.477 22.426 22.426 0 0022.474-22.477V89.998h40.256c2.06 0 4.07.207 6.01.602a29.566 29.566 0 0110.644 4.464 29.748 29.748 0 0110.762 13.08c.75 1.781 1.334 3.65 1.729 5.59s.601 3.95.601 6.01v61.326H45.391v-61.326c0-2.06.208-4.07.603-6.01a29.563 29.563 0 018.09-15.043A29.615 29.615 0 0169.127 90.6a30.1 30.1 0 016.01-.601zM45.39 227.031h365.646v198.295c0 2.06-.207 4.07-.601 6.01a29.574 29.574 0 01-4.465 10.643 29.762 29.762 0 01-8.026 8.027 29.597 29.597 0 01-10.644 4.463c-1.94.395-3.95.603-6.01.603H75.137c-2.06 0-4.07-.208-6.01-.603a29.605 29.605 0 01-15.043-8.09 29.756 29.756 0 01-6.363-9.453 29.562 29.562 0 01-1.727-5.59 30.098 30.098 0 01-.603-6.01z' fill='%23b0b0bb'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: center center;
+  display: inline-block;
+  background-size: contain;
+  width: 14px;
+  height: 14px;
+  margin: 10px;
+}
+
+.daterange-wrapper-full {
+  position: fixed;
+  background-color: rgba(40, 44, 52, 0.9);
+  color: #D3D3D3;
+  left: 0px;
+  top: 0px;
+  width: 100vw;
+  height: 100vh;
+  display: -webkit-box;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-direction: normal;
+  -webkit-box-orient: vertical;
+  -moz-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  -moz-align-items: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -moz-justify-content: center;
+  justify-content: center;
+  -ms-user-select: none;
+  -moz-user-select: none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+}
+
+.daterange-wrapper-full > div {
+  background-color: #282C34;
+  overflow: hidden;
+  border-radius: 4px;
+}
+
+.daterange-calendar {
+  width: 322px;
+  overflow: hidden;
+  display: -webkit-box;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.daterange-calendar > table {
+  width: 100%;
+  border-spacing: 0px;
+  border-collapse: collapse;
+}
+
+.daterange-calendar > table > thead {
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.daterange-calendar > table > thead td {
+  font-size: 60%;
+}
+
+.daterange-calendar > table > thead td:nth-child(6), .daterange-calendar > table > thead td:nth-child(7) {
+  color: #EA6640;
+}
+
+.daterange-calendar > table td {
+  padding: 12px 0px;
+  min-width: 45px;
+  text-align: center;
+}
+
+.daterange-calendar > table > tbody td {
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  -webkit-transition: 0.3s;
+  -moz-transition: 0.3s;
+  -ms-transition: 0.3s;
+  -o-transition: 0.3s;
+  -webkit-transition-property: all;
+  transition-property: all;
+}
+
+.daterange-calendar > table > tbody td:hover {
+  background-color: #EA6640;
+}
+
+.daterange-calendar > table > tbody td.daterange-empty {
+  border: none;
+}
+
+.daterange-calendar > table > tbody td.daterange-empty:hover {
+  background-color: transparent !important;
+}
+
+.daterange-calendar > table > tbody td:nth-child(6), .daterange-calendar > table > tbody td:nth-child(7) {
+  color: #ffcaa4;
+}
+
+.daterange-calendar > table > tbody td.daterange-selected {
+  background-color: #EA6640;
+}
+
+.daterange-title {
+  text-align: center;
+  padding-bottom: 10px;
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.daterange-title > span {
+  font-size: 120%;
+  text-transform: uppercase;
+  display: inline-block;
+}
+
+.daterange-title > strong {
+  font-size: 120%;
+  margin-left: 10px;
+}
+
+.daterange-title .daterange-arrow-left {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24.041' height='45.256'%3E%3Cpath d='M22.627 0L1.414 21.213 0 22.627l1.414 1.416 21.213 21.213 1.414-1.414L2.828 22.629 24.041 1.414z' fill='%23f9f9f9' fill-opacity='.957'/%3E%3C/svg%3E");
+}
+
+.daterange-title .daterange-arrow-right {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24.041' height='45.256'%3E%3Cpath d='M1.414 0l21.213 21.213 1.414 1.414-1.414 1.416L1.414 45.256 0 43.842l21.213-21.213L0 1.414z' fill='%23f9f9f9' fill-opacity='.957'/%3E%3C/svg%3E");
 }
 /*# sourceMappingURL=daterange.css.map */
